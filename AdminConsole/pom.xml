@@ -1,0 +1,188 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.suntecgroup</groupId>
+	<artifactId>adminconsole</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<description>BP Admin Console</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</parent>
+
+	<properties>
+		<skipTests>true</skipTests>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		          <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
+	</dependencies>
+
+
+	<build>
+		<!-- <finalName>adminconsole</finalName> -->
+		<plugins>
+			<!-- <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.10</version>
+				<executions>
+					<execution>
+						<id>assemble</id>
+						<goals>
+							<goal>generate-daemons</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<!-- Set the target configuration directory to be used in the bin scripts -->
+							<configurationDirectory>etc</configurationDirectory>
+							<configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
+							<useWildcardClassPath>true</useWildcardClassPath>
+							<!-- Copy the contents from "/src/main/config" to the target configuration 
+								directory in the assembled application -->
+							<copyConfigurationDirectory>true</copyConfigurationDirectory>
+							<!-- Include the target configuration directory in the beginning of the 
+								classpath declaration in the bin scripts -->
+							<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+							<!-- set alternative assemble directory -->
+							<assembleDirectory>${project.build.directory}/adminconsole-assemble</assembleDirectory>
+							<!-- Extra JVM arguments that will be included in the bin scripts -->
+							<extraJvmArguments>-Xms128m</extraJvmArguments>
+							<!-- Generate bin scripts for windows and unix pr default -->
+							<showConsoleWindow>true</showConsoleWindow>
+							<repositoryLayout>flat</repositoryLayout>
+							<logsDirectory>logs</logsDirectory>
+							<daemons>
+								<daemon>
+									<id>${project.artifactId}</id>
+									<!-- the next line is added by default if you don't have wrapperMainClass's 
+										setting -->
+									<wrapperMainClass>org.tanukisoftware.wrapper.WrapperSimpleApp</wrapperMainClass>
+									<mainClass>com.suntecgroup.adminconsole.AdminConsoleApplication</mainClass>
+									<!-- <commandLineArguments>
+										<commandLineArgument>lib/${project.artifactId}-${project.version}.war</commandLineArgument>
+									</commandLineArguments> -->
+									<platforms>
+										<platform>jsw</platform>
+									</platforms>
+									<jvmSettings>
+										<initialMemorySize>256</initialMemorySize>
+										<maxMemorySize>1024</maxMemorySize>
+									</jvmSettings>
+									<generatorConfigurations>
+										<generatorConfiguration>
+											<generator>jsw</generator>
+											<includes>
+												<include>linux-x86-32</include>
+												<include>linux-x86-64</include>
+												<include>windows-x86-32</include>
+												<include>windows-x86-64</include>
+											</includes>
+											<configuration>
+												<property>
+													<name>configuration.directory.in.classpath.first</name>
+													<value>etc</value>
+												</property>
+												<property>
+													<name>set.default.REPO_DIR</name>
+													<value>lib</value>
+												</property>
+												<property>
+													<name>wrapper.logfile</name>
+													<value>logs/wrapper.log</value>
+												</property>
+											</configuration>
+										</generatorConfiguration>
+									</generatorConfigurations>
+								</daemon>
+							</daemons>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/main/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+	<scm>
+		<connection>scm:git:http://sbstjvmlx807.suntecsbs.com/root/Xelerate_java.git</connection>
+		<url>scm:git:http://sbstjvmlx807.suntecsbs.com/root/Xelerate_java.git</url>
+		<developerConnection>scm:git:http://sbstjvmlx807.suntecsbs.com/root/Xelerate_java.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<repositories>
+		<repository>
+			<id>Xelerate3</id>
+			<url>http://sbstjvmlx806.suntecsbs.com:8081/repository/Xelerate3/</url>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>x3_snapshot</id>
+			<url>http://sbstjvmlx806.suntecsbs.com:8081/repository/x3_snapshot/</url>
+		</snapshotRepository>
+		<repository>
+			<id>x3_release</id>
+			<url>http://sbstjvmlx806.suntecsbs.com:8081/repository/x3_release/</url>
+		</repository>
+	</distributionManagement>
+</project>

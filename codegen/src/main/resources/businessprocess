@@ -1,0 +1,131 @@
+#Funnel properties
+process.connectionFunnelType=FUNNEL
+process.funnelComponentType=org.apache.nifi.processors.standard.Funnel
+process.FunnelName=Funnel
+
+#invoke HTTP properties
+process.invokeHttpComponentType=org.apache.nifi.processors.standard.InvokeHTTP
+process.invokeHttpBundleGroup=org.apache.nifi
+process.invokeHttpBundleArtifact=nifi-standard-nar
+process.invokeHttpBundleVersion=1.7.1
+#process.invokeHttpAppName=InvokeHTTPProcessor
+process.invokeHttpAppName=invokeHTTP
+
+#Custom invoke HTTP properties
+process.custominvokeHttpComponentType=com.suntecgroup.custom.processor.CustomInvokeHTTP
+process.custominvokeHttpAppName=customInvokeHTTP
+
+#Connections Properties
+process.connectionProcessorType=PROCESSOR
+process.connectionFunnelType=FUNNEL
+process.sizeThreshold=1 GB
+process.objectThreshold=10000
+process.flowFileExpiration=0 sec
+process.labelIndex=1
+process.zIndex=0
+
+#CustomJoinProcessor properties
+process.customJoinComponentType=com.suntecgroup.custom.processor.JoinProcessor
+process.customJoinAppName=JoinProcessor
+
+
+process.groupID=688f3e9f-0163-1000-2c60-a8fcd62f0965
+process.templateName=template_1
+process.encodingVersion=1.2
+
+#Custom Bundle Properties
+process.customBundleGroup=com.suntecgroup.nifi
+process.customBundleArtifact=nar
+process.customBundleVersion=1.0-SNAPSHOT
+process.customBundleOneVersion=1.0
+
+# GetFile properties
+process.getFileComponentType=com.suntecgroup.custom.processor.CustomGetFile
+process.getFileAppName=GetFile
+
+# PutFile properties
+process.putFileComponentType=com.suntecgroup.custom.processor.CustomPutFile
+process.putFileAppName=PutFile
+
+# NifiCustomFileChannelIntegrationInput properties
+process.customFixedWidthInputFileChannelComponentType=com.suntecgroup.custom.processor.FixedWidthInputFileChannelProcessor
+process.customDelimitedInputFileChannelComponentType=com.suntecgroup.custom.processor.DelimitedInputFileChannelProcessor
+process.customFileChannelIntegrationInputAppName=FileInputProcessor
+
+# NifiCustomFileChannelIntegrationOutput properties
+process.customFixedWidthOutputFileChannelComponentType=com.suntecgroup.custom.processor.FixedWidthOutputFileChannelProcessor
+process.customDelimitedOutputFileChannelComponentType=com.suntecgroup.custom.processor.DelimitedOutputFileChannelProcessor
+process.customFileChannelIntegrationOutputAppName=FileOutputProcessor
+
+# InputRestChannelIntegrationOperator properties
+process.customInputRestCIProcessorComponentType=com.suntecgroup.custom.processor.InputRestChannelProcessor
+process.customRestChannelIntegrationInputAppName=RestInputProcessor
+
+# OutputRestChannelIntegrationOperator properties
+process.customOutputRestCIProcessorComponentType=com.suntecgroup.custom.processor.OutputRestChannelProcessor
+process.customRestChannelIntegrationOutputAppName=RestOutputProcessor
+
+# NifiCustomMerge properties
+process.customPreMergeComponentType=com.suntecgroup.custom.processor.PreProcessorMerge
+process.customPostMergeComponentType=com.suntecgroup.custom.processor.PostProcessorMerge
+process.customMergeProcessorAppName=MergeProcessor
+
+#CustomListenHttpProcessor properties
+process.customListenHttpComponentType=com.suntecgroup.custom.processor.CustomListenHTTPProcessor
+process.customListenHttpAppName=CustomListenHTTPProcessor
+
+#CustomStartProcessor properties
+process.customStartComponentType=com.suntecgroup.custom.processor.StartProcessor
+process.customStartAppName=customStart
+
+#CustomPreProcessorIBS properties
+process.customPreProcessorIBSType=com.suntecgroup.custom.processor.PreProcessorInvokeBS
+process.customPreProcessorIBSAppName=PreProcessorInvokeBS
+
+#CustomPostProcessorIBS properties
+process.customPostProcessorIBSType=com.suntecgroup.custom.processor.PostProcessorInvokeBS
+process.customPostProcessorIBSAppName=PostProcessorInvokeBS
+
+#CustomKafkaConsumerIBS properties
+process.customKafkaConsumerIBSType=com.suntecgroup.custom.processor.CustomKafkaConsumer
+process.customKafkaConsumerIBSAppName=CustomKafkaConsumer
+
+#UpdateAttributeProcessor properties
+process.UpdateAttributeBundleGroup=org.apache.nifi
+process.UpdateAttributeBundleArtifact=nifi-update-attribute-nar
+process.UpdateAttributeBundleVersion=1.7.1
+
+process.UpdateAttributeComponentType=org.apache.nifi.processors.attributes.UpdateAttribute
+process.UpdateAttributeComponentAppName=UpdateAttribute
+
+#CustomDecisionMatrixProcessorDM properties
+process.customProcessordecisionMatrixExclusiveType=com.suntecgroup.custom.processor.DecisionMatrixProcessor
+process.customProcessordecisionMatrixExclusiveAppName=decisionMatrixExclusive
+
+#CustomDecisionMatrixProcessorDM properties
+process.customProcessordecisionMatrixInclusiveType=com.suntecgroup.custom.processor.DecisionMatrixProcessor
+process.customProcessordecisionMatrixInclusiveAppName=decisionMatrixInclusive
+
+#CustomConnectorProcessorSmartConnector properties
+process.customProcessorConnectorProcessorType=com.suntecgroup.custom.processor.SmartConnectorProcessor
+process.customProcessorConnectorProcessorAppName=SmartConnector
+
+#CustomPreEventLoggerProcessor properties
+process.customPreEventLoggerComponentType=com.suntecgroup.custom.processor.PreEventLogger
+process.customPreEventLoggerComponentAppName=PreEventLogger
+
+#CustomPostEventLoggerProcessor properties
+process.customPostEventLoggerComponentType=com.suntecgroup.custom.processor.PostEventLogger
+process.customPostEventLoggerComponentAppName=PostEventLogger
+
+#CustomEndProcessor properties
+process.customEndComponentType=com.suntecgroup.custom.processor.EndProcessor
+process.customEndAppName=customEnd
+
+#CustomFailureProcessor properties
+process.customFailureComponentType=com.suntecgroup.custom.processor.FailureProcessor
+process.customFailureComponentAppName=FailureProcessor
+
+#CustomBusinessFailureProcessor Properties
+process.customBusinessFailureComponentType=com.suntecgroup.custom.processor.BusinessFailureProcessor
+process.customBusinessFailureComponentAppName=BusinessFailureProcessor

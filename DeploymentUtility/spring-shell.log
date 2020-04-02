@@ -1,0 +1,21 @@
+1571732677940:exit 0
+1571738879385:help
+1571738887395:exit 0
+1571739445400:help
+1571739525477:stacttrace
+1571740647917:exit 0
+1571745553909:help
+1571745634997:exit 0
+1571745663363:help
+1571745713352:exit 0
+1571745728578:help
+1571745781196:exit
+1571746029987:help
+1571746095409:add 1 2
+1571746107686:add -a 1 -b 2
+1571746712298:translate hi en en
+1571747407727:exit 0
+1571809263040:deploy-template -A AAAAAAA -L C:\\Users\\johnbrittom\\Downloads\\artifact -N https://sbstjvmlx808:9443 -R http://localhost:8080
+1571809382357:deploy-template -A AAAAAAA -L C:\\\\Users\\\\johnbrittom\\\\Downloads\\\\artifact -N https://sbstjvmlx808:9443 -R http://localhost:8080
+1571895514639:deploy-template -A BillBP -L C:\\\\Users\\\\johnbrittom\\\\Downloads\\\\artifact -N https://sbstjvmlx808:9443 -R http://localhost:8080
+1571909562774:deploy-template -A BillBP -P C:\\\\Users\\\\johnbrittom\\\\Downloads\\\\artifact -R http://localhost:8080
